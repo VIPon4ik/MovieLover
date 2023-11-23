@@ -9,6 +9,6 @@ export const getTrendingMovies = async () => {
 };
 
 export const getMovieDetails = async (movieId, part = '') => {
-  const response = await axios.get(`movie/${movieId}?language=en-US`, OPTIONS);
+  const response = await axios.get(`movie/${movieId}${part}?language=en-US`, OPTIONS);
   return response.data;
 }
