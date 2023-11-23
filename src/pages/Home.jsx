@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getTrendingMovies } from 'api/moviesApi';
 import { toast } from 'react-toastify';
+import { MovieList, Title } from './Home.styled';
+import MovieCard from 'components/MovieCard/MovieCard';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -21,14 +23,12 @@ const Home = () => {
 
   return (
     <>
-      <h1>Trending today</h1>
-      <ul>
-        {movies.map(({ id, title }) => title ? (
-          <li key={id}>
-            <Link to={`/movies/${id}`}>{title}</Link>
-          </li>
-        ) : null)}
-      </ul>
+      <Title>Trending today</Title>
+      <MovieList>
+        {movies.map(({ id, title, poster_path }) =>
+          title ? <MovieCard key={id} id={id} title={title} posterPath={poster_path}/> : null
+        )}
+      </MovieList>
     </>
   );
 };

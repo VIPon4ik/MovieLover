@@ -11,24 +11,28 @@ const Reviews = () => {
     const getMovieReviews = async () => {
       try {
         const movieReviews = await getMovieDetails(movieId, '/reviews');
-        setMovieReviews(movieReviews.results ?? []);
+        setMovieReviews(movieReviews.results);
       } catch (error) {
-        toast.error("Problem with API: ", error);
+        toast.error('Problem with API: ', error);
       }
     };
 
     getMovieReviews();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <ul>
-      {<p>We don't have any reviews on this movie</p> && movieReviews.map(({ author, content, id }) => (
-        <li key={id}>
-          <h3>{author}</h3>
-          <p>{content}</p>
-        </li>
-      ))}
+      {movieReviews.length === 0 ? (
+        <p>We don't have any reviews for this movie</p>
+      ) : (
+        movieReviews.map(({ author, content, id }) => (
+          <li key={id}>
+            <h3>{author}</h3>
+            <p>{content}</p>
+          </li>
+        ))
+      )}
     </ul>
   );
 };
