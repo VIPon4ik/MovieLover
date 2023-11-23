@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { getMovieDetails } from 'api/moviesApi';
 import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { FaLongArrowAltLeft } from 'react-icons/fa';
+import { getMovieDetails } from 'api/moviesApi';
 import { ImageContainer } from './MovieDetails.styled';
 import { IMAGE_BASE_PATH } from 'constants';
 
@@ -9,7 +10,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
-  const backLink = useRef(location.state?.from.search ?? '/movies');
+  const backLink = useRef(location.state?.from.search ?? '');
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -22,12 +23,15 @@ const MovieDetails = () => {
     };
 
     fetchMovieDetails();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <Link to={`/movies${backLink.current}`}>Go back</Link>
+      <Link to={`/movies${backLink.current}`}>
+        <FaLongArrowAltLeft />
+        Go back
+      </Link>
       <ImageContainer>
         <img
           src={`${IMAGE_BASE_PATH}${movie.poster_path}`}
