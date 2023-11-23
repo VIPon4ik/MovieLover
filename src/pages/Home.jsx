@@ -7,7 +7,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTrendingMovies = async () => {
       try {
         const data = await getTrendingMovies();
         setMovies(data.results);
@@ -16,20 +16,18 @@ const Home = () => {
       }
     };
 
-    fetchData();
+    fetchTrendingMovies();
   }, []);
-
-  console.log(movies);
 
   return (
     <>
       <h1>Trending today</h1>
       <ul>
-        {movies.map(({ id, title }) => (
+        {movies.map(({ id, title }) => title ? (
           <li key={id}>
             <Link to={`/movies/${id}`}>{title}</Link>
           </li>
-        ))}
+        ) : null)}
       </ul>
     </>
   );

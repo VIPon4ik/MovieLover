@@ -1,8 +1,8 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { NavigationLink, Header } from './Layout.styled'
+import { NavigationLink, Header } from './Layout.styled';
 
 const Layout = () => {
   return (
@@ -11,10 +11,12 @@ const Layout = () => {
         <NavigationLink to="/">Home</NavigationLink>
         <NavigationLink to="/movies">Movies</NavigationLink>
       </Header>
-      <Outlet />
-      <ToastContainer position='top-center' autoClose='1000'/>
+      <main>
+        <Outlet />
+      </main>
+      <ToastContainer position="top-center" autoClose="1000" />
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
