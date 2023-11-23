@@ -12,3 +12,8 @@ export const getMovieDetails = async (movieId, part = '') => {
   const response = await axios.get(`movie/${movieId}${part}?language=en-US`, OPTIONS);
   return response.data;
 }
+
+export const getMovies = async (query, page = 1) => {
+  const response = await axios.get(`/search/movie?query=${query}&page=${page}`, OPTIONS)
+  return response.data;
+}

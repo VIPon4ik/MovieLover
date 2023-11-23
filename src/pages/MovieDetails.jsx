@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { getMovieDetails } from 'api/moviesApi';
-import { Link, useParams, Outlet } from 'react-router-dom';
+import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ImageContainer } from './MovieDetails.styled';
 import { IMAGE_BASE_PATH } from 'constants';
 
-
-
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLink = useRef(location.state?.from.search ?? '/movies');
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -27,7 +27,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link>Go back</Link>
+      <Link to={`/movies${backLink.current}`}>Go back</Link>
       <ImageContainer>
         <img
           src={`${IMAGE_BASE_PATH}${movie.poster_path}`}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getMovieDetails } from 'api/moviesApi';
 import { useParams } from 'react-router-dom';
 import { IMAGE_BASE_PATH } from 'constants';
+import { toast } from 'react-toastify';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -12,8 +13,7 @@ const Cast = () => {
         const movieCredits = await getMovieDetails(movieId, '/credits');
         setMovieCast(movieCredits.cast);
       } catch (error) {
-        console.log(error);
-      }
+        toast.error("Problem with API: ", error);      }
     };
 
     getMovieCast();

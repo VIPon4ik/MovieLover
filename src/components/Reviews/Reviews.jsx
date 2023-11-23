@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getMovieDetails } from 'api/moviesApi';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -10,10 +11,9 @@ const Reviews = () => {
     const getMovieReviews = async () => {
       try {
         const movieReviews = await getMovieDetails(movieId, '/reviews');
-        console.log(movieReviews.results);
         setMovieReviews(movieReviews.results ?? []);
       } catch (error) {
-        console.log(error);
+        toast.error("Problem with API: ", error);
       }
     };
 
@@ -23,12 +23,12 @@ const Reviews = () => {
 
   return (
     <ul>
-      {movieReviews.map(({ author, content, id }) => (
+      {<p>We don't have any reviews on this movie</p> && movieReviews.map(({ author, content, id }) => (
         <li key={id}>
           <h3>{author}</h3>
           <p>{content}</p>
         </li>
-      )) && <p>We don't have any reviews on this movie</p>}
+      ))}
     </ul>
   );
 };
