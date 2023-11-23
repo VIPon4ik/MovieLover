@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { getTrendingMovies } from 'api/moviesApi';
 import { toast } from 'react-toastify';
 import { MovieList, Title } from './Home.styled';
