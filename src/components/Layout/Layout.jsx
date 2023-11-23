@@ -1,5 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { NavigationLink, Header } from './Layout.styled'
 
 const Layout = () => {
@@ -10,6 +12,7 @@ const Layout = () => {
         <NavigationLink to="/movies">Movies</NavigationLink>
       </Header>
       <Outlet />
+      <ToastContainer position='top-center' autoClose='1000'/>
     </>
   )
 }
