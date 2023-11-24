@@ -10,7 +10,18 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
-  const backLink = useRef(location.state?.from.search ?? '');
+
+  const getBackLink = () => {
+    if (location.state?.from.pathname === '/') {
+      return '/';
+    }
+
+    return location.state?.from.search
+      ? `/movies${location.state.from.search}`
+      : '/movies';
+  };
+
+  const backLink = useRef(getBackLink());
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -28,7 +39,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={`/movies${backLink.current}`}>
+      <Link to={`${backLink.current}`}>
         <FaLongArrowAltLeft />
         Go back
       </Link>
