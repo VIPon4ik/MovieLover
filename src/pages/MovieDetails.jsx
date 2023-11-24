@@ -37,10 +37,11 @@ const MovieDetails = () => {
           src={`${IMAGE_BASE_PATH}${movie.poster_path}`}
           alt={`${movie.title} poster`}
           width={300}
+          height={450}
         />
         <div>
           <h1>{movie.title}</h1>
-          <p>{movie.vote_average}</p>
+          <p>{movie.vote_average} stars</p>
           <h2>Overview</h2>
           <p>{movie.overview}</p>
           <h3>Genres</h3>
