@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, Suspense } from 'react';
 import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaLongArrowAltLeft } from 'react-icons/fa';
 import { getMovieDetails } from 'api/moviesApi';
 import { ImageContainer } from './MovieDetails.styled';
+import Loader from 'components/Loader/Loader';
 import { IMAGE_BASE_PATH } from 'constants';
 
 const MovieDetails = () => {
@@ -74,7 +75,9 @@ const MovieDetails = () => {
         </ul>
       </div>
       <hr />
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

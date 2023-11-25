@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getMovies } from 'api/moviesApi';
 import { toast } from 'react-toastify';
-import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
+import { MovieList } from './Home.styled';
+import MovieCard from 'components/MovieCard/MovieCard';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -47,15 +49,11 @@ const Movies = () => {
         <input type="text" name="query" />
         <button type="submit">Search</button>
       </form>
-      <ul>
-        {movies.map(({ id, title }) => (
-          <li key={id}>
-            <Link to={`${id}`} state={{ from: location }}>
-              {title}
-            </Link>
-          </li>
+      <MovieList>
+        {movies.map(({ id, title, poster_path }) => (
+          <MovieCard location={location} key={id} id={id} title={title} posterPath={poster_path}/>
         ))}
-      </ul>
+      </MovieList>
     </>
   );
 };

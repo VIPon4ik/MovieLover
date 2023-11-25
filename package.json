@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-05-movies",
+  "name": "/",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://VIPon4ik.github.io/goit-react-hw-05-movies/",
@@ -11,6 +11,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.12.0",
+    "react-loader-spinner": "^5.4.5",
     "react-paginate": "^8.2.0",
     "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",

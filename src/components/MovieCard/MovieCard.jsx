@@ -11,7 +11,7 @@ const MovieCard = ({ id, title, posterPath, location }) => {
         style={{ textDecoration: 'none' }}
         state={{ from: location }}
       >
-        <img src={`${IMAGE_BASE_PATH}${posterPath}`} alt={`${title} poster`} />
+        <img src={`${IMAGE_BASE_PATH}${posterPath}`} alt={`${title} poster`} width={280} height={420}/>
         <MovieTitle>{title}</MovieTitle>
       </Link>
     </MovieListItem>
