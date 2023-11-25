@@ -20,6 +20,7 @@ const Movies = () => {
       if (location.search) {
         if (location.search.slice(0, 7) !== '?query=') {
           navigate('/queryError', { replace: true });
+          return;
         }
         const query = location.search.slice(7);
         await getMoviesData(query);
