@@ -8,7 +8,7 @@ const modalRoot = document.getElementById('modal-root');
 const Loader = () => {
   return createPortal(
     <ModalContainer>
-      <Oval />
+      <Oval color='#eb0034' secondaryColor='#eb0034'/>
     </ModalContainer>,
     modalRoot
   );
