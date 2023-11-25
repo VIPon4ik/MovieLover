@@ -33,7 +33,6 @@ export const SearchButton = styled.button`
   width: 80px;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  // border-radius: 20px;
   border: none;
   background-color: #eb4034;
   cursor: pointer;
