@@ -18,3 +18,12 @@ export const MovieListItem = styled.li`
     color: #eb0034;
   }
 `;
+
+export const NoPoster = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  width: 280px;
+  height: 420px;
+`
