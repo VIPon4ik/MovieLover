@@ -2,18 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { getMovieDetails } from 'api/moviesApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loader from 'components/Loader/Loader';
 
 const Reviews = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
   const [movieReviews, setMovieReviews] = useState([]);
 
   useEffect(() => {
     const getMovieReviews = async () => {
+      setIsLoading(true);
+
       try {
         const movieReviews = await getMovieDetails(movieId, '/reviews');
         setMovieReviews(movieReviews.results);
       } catch (error) {
         toast.error('Problem with API: ', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -22,18 +28,22 @@ const Reviews = () => {
   }, []);
 
   return (
-    <ul>
-      {movieReviews.length === 0 ? (
-        <p>We don't have any reviews for this movie</p>
-      ) : (
-        movieReviews.map(({ author, content, id }) => (
-          <li key={id}>
-            <h3>{author}</h3>
-            <p>{content}</p>
-          </li>
-        ))
-      )}
-    </ul>
+    <>
+      {isLoading && <Loader />}
+
+      <ul>
+        {movieReviews.length === 0 ? (
+          <p>We don't have any reviews for this movie</p>
+        ) : (
+          movieReviews.map(({ author, content, id }) => (
+            <li key={id}>
+              <h3>{author}</h3>
+              <p>{content}</p>
+            </li>
+          ))
+        )}
+      </ul>
+    </>
   );
 };
 

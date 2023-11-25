@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import { COLORS } from "constants";
+import { Link } from "react-router-dom";
 
 export const ImageContainer = styled.div`
   display: grid;
-  grid-template-columns: 300px 1fr;
   gap: 20px;
   margin-top: 20px;
+  grid-template-rows: 450 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 300px 1fr;
+  }
 `
 
 export const NoPoster = styled.div`
@@ -17,4 +22,38 @@ export const NoPoster = styled.div`
   height: 450px;
 
   background-color: ${COLORS.black};
+`
+
+export const RatingText = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`
+
+export const MovieLinkList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`
+
+export const MovieLink = styled(Link)`
+  color: #fff;
+  background-color: ${COLORS.light_red};
+  max-width: 100px;
+  height: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  &:hover,
+  &:focus {
+    background-color: ${COLORS.dark_red};
+  }
 `

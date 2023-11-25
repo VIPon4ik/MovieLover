@@ -1,14 +1,21 @@
 import React, { useEffect, useRef, useState, Suspense } from 'react';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { FaStar } from 'react-icons/fa6';
 import { FaLongArrowAltLeft } from 'react-icons/fa';
-import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { getMovieDetails } from 'api/moviesApi';
-import { ImageContainer, NoPoster } from './MovieDetails.styled';
+import {
+  ImageContainer,
+  NoPoster,
+  RatingText,
+  MovieLink,
+  MovieLinkList,
+} from './MovieDetails.styled';
+import { IMAGE_BASE_PATH, COLORS } from 'constants';
 import Loader from 'components/Loader/Loader';
-import { IMAGE_BASE_PATH } from 'constants';
 
 const MovieDetails = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
@@ -27,11 +34,14 @@ const MovieDetails = () => {
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
+      setIsLoading(true);
       try {
         const movieDetails = await getMovieDetails(movieId);
         setMovie(movieDetails);
       } catch (error) {
         toast.error('Problem with API: ', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -41,10 +51,11 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={`${backLink.current}`}>
+      {isLoading && <Loader />}
+      <MovieLink to={`${backLink.current}`}>
         <FaLongArrowAltLeft />
         Go back
-      </Link>
+      </MovieLink>
       <ImageContainer>
         {movie.poster_path ? (
           <img
@@ -58,9 +69,9 @@ const MovieDetails = () => {
         )}
         <div>
           <h1>{movie.title}</h1>
-          <p>
-            {movie.vote_average} <FaStar fill='#e' />
-          </p>
+          <RatingText>
+            <FaStar fill={COLORS.dark_red} /> {movie.vote_average}
+          </RatingText>
           <h2>Overview</h2>
           <p>{movie.overview}</p>
           <h3>Genres</h3>
@@ -71,16 +82,14 @@ const MovieDetails = () => {
         </div>
       </ImageContainer>
       <hr />
-      <div>
-        <ul>
-          <li>
-            <Link to="cast">Cast</Link>
-          </li>
-          <li>
-            <Link to="reviews">Reviews</Link>
-          </li>
-        </ul>
-      </div>
+      <MovieLinkList>
+        <li>
+          <MovieLink to="cast">Cast</MovieLink>
+        </li>
+        <li>
+          <MovieLink to="reviews">Reviews</MovieLink>
+        </li>
+      </MovieLinkList>
       <hr />
       <Suspense fallback={<Loader />}>
         <Outlet />
