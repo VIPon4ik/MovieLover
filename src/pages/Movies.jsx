@@ -5,6 +5,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import { MovieList } from './Home.styled';
 import MovieCard from 'components/MovieCard/MovieCard';
 import Loader from 'components/Loader/Loader';
+import { Form, Input, SearchButton } from './Movies.styled';
 
 const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -51,10 +52,10 @@ const Movies = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="query" />
-        <button type="submit">Search</button>
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <Input type="text" name="query" />
+        <SearchButton type="submit">Search</SearchButton>
+      </Form>
       <MovieList>
         {movies.map(({ id, title, poster_path }) => (
           <MovieCard location={location} key={id} id={id} title={title} posterPath={poster_path}/>
