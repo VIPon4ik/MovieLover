@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLORS } from "constants";
 
 export const ImageContainer = styled.div`
   display: grid;
@@ -11,9 +12,9 @@ export const NoPoster = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: ${COLORS.white};
   width: 300px;
   height: 450px;
 
-  background-color: #212121;
+  background-color: ${COLORS.black};
 `

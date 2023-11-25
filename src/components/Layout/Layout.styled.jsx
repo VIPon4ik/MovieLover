@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { COLORS } from "constants";
 
 export const NavigationLink = styled(NavLink)`
   text-decoration: none;
@@ -8,12 +9,12 @@ export const NavigationLink = styled(NavLink)`
   transition: color 0.2s ease-in-out;
   
   &.active {
-    color: #eb4034;
+    color: ${COLORS.light_red};
   }
 
   &:hover,
   &:active {
-    color: #eb4034;
+    color: ${COLORS.light_red};
   }
 `
 

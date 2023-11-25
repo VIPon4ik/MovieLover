@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState, Suspense } from 'react';
+import { FaStar } from 'react-icons/fa6';
+import { FaLongArrowAltLeft } from 'react-icons/fa';
 import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FaLongArrowAltLeft } from 'react-icons/fa';
 import { getMovieDetails } from 'api/moviesApi';
 import { ImageContainer, NoPoster } from './MovieDetails.styled';
 import Loader from 'components/Loader/Loader';
@@ -45,15 +46,21 @@ const MovieDetails = () => {
         Go back
       </Link>
       <ImageContainer>
-        {movie.poster_path ? (<img
-          src={`${IMAGE_BASE_PATH}${movie.poster_path}`}
-          alt={`${movie.title} poster`}
-          width={300}
-          height={450}
-        />) : <NoPoster>No poster</NoPoster> }
+        {movie.poster_path ? (
+          <img
+            src={`${IMAGE_BASE_PATH}${movie.poster_path}`}
+            alt={`${movie.title} poster`}
+            width={300}
+            height={450}
+          />
+        ) : (
+          <NoPoster>No poster</NoPoster>
+        )}
         <div>
           <h1>{movie.title}</h1>
-          <p>{movie.vote_average} stars</p>
+          <p>
+            {movie.vote_average} <FaStar fill='#e' />
+          </p>
           <h2>Overview</h2>
           <p>{movie.overview}</p>
           <h3>Genres</h3>
