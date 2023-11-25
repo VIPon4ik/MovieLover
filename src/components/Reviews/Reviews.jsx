@@ -32,7 +32,7 @@ const Reviews = () => {
       {isLoading && <Loader />}
 
       <ul>
-        {movieReviews.length === 0 ? (
+        {movieReviews.length === 0 && isLoading === false ? (
           <p>We don't have any reviews for this movie</p>
         ) : (
           movieReviews.map(({ author, content, id }) => (
