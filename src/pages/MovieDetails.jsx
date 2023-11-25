@@ -3,7 +3,7 @@ import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaLongArrowAltLeft } from 'react-icons/fa';
 import { getMovieDetails } from 'api/moviesApi';
-import { ImageContainer } from './MovieDetails.styled';
+import { ImageContainer, NoPoster } from './MovieDetails.styled';
 import Loader from 'components/Loader/Loader';
 import { IMAGE_BASE_PATH } from 'constants';
 
@@ -45,12 +45,12 @@ const MovieDetails = () => {
         Go back
       </Link>
       <ImageContainer>
-        <img
+        {movie.poster_path ? (<img
           src={`${IMAGE_BASE_PATH}${movie.poster_path}`}
           alt={`${movie.title} poster`}
           width={300}
           height={450}
-        />
+        />) : <NoPoster>No poster</NoPoster> }
         <div>
           <h1>{movie.title}</h1>
           <p>{movie.vote_average} stars</p>
