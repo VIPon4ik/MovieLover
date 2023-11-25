@@ -4,8 +4,10 @@ import { toast } from 'react-toastify';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { MovieList } from './Home.styled';
 import MovieCard from 'components/MovieCard/MovieCard';
+import Loader from 'components/Loader/Loader';
 
 const Movies = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,16 +37,20 @@ const Movies = () => {
   };
 
   const getMoviesData = async query => {
+    setIsLoading(true);
     try {
       const data = await getMovies(query);
       setMovies(data.results);
     } catch (error) {
       toast.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <>
+      {isLoading && <Loader />}
       <form onSubmit={handleSubmit}>
         <input type="text" name="query" />
         <button type="submit">Search</button>
