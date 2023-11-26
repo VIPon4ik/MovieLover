@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { COLORS } from 'constants';
+import { NavLink } from 'react-router-dom'
+import { getColors } from 'constants';
+
+const COLORS = getColors(JSON.parse(localStorage.getItem('theme')));
 
 export const NavigationLink = styled(NavLink)`
   text-decoration: none;

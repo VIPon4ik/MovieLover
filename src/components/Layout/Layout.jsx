@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,8 +6,6 @@ import {
   NavigationLink,
   Header,
   Container,
-  ThemeButton,
-  ThemeButtonContainer,
 } from './Layout.styled';
 import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';

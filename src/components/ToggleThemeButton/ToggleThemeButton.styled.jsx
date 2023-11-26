@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { COLORS } from "constants";
+import { getColors } from "constants";
+
+const COLORS = getColors(JSON.parse(localStorage.getItem('theme')));
 
 export const ThemeButtonContainer = styled.div`
   position: absolute;

@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import { COLORS } from "constants";
+import { getColors } from "constants";
+
+const COLORS = getColors(JSON.parse(localStorage.getItem('theme')));
 
 export const Rating = styled.span`
-  dispaly: flex;
+  display: inline-flex;
   align-items: center;
   font-size: 14px;
   color: ${COLORS.black};
   margin-left: 10px;
+  gap: 6px;
 `
 
 export const ReviewListItem = styled.li`

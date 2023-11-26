@@ -18,11 +18,19 @@ export const COLORS = {
   second_white: '#fff',
 }
 
-// export const COLORS = {
-//   light_red: '#eb4034',
-//   dark_red: '#eb0034',
-//   white: '#212121',
-//   second_white: '#313131',
-//   black: '#fff',
-//   second_black: '#212121', 
-// }
+export const DARK_COLORS = {
+  light_red: '#eb4034',
+  dark_red: '#eb0034',
+  white: '#212121',
+  second_white: '#313131',
+  black: '#fff',
+  second_black: '#212121', 
+}
+
+export const getColors = (toggle) => {
+  if (toggle) {
+    return DARK_COLORS;
+  }
+
+  return COLORS;
+}
