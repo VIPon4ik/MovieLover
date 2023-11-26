@@ -22,13 +22,19 @@ export const Header = styled.header`
   padding: 20px;
   display: flex;
   gap:20px;
-  box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
   min-width: 320px;
+  background-color: ${COLORS.white};
+  box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
+  position: fixed;
+  width: 100%;
+  color: ${COLORS.black}
 `
 
 export const Container = styled.div`
   max-width: 1240px;
   min-width: 320px;
-  padding: 20px;
+  padding: 90px 20px 20px 20px;
   margin: 0 auto;
+  background-color: ${COLORS.white};
+  color: ${COLORS.black}
 `
