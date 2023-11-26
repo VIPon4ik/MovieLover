@@ -11,23 +11,16 @@ import {
 } from './Layout.styled';
 import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
+import ToggleThemeButton from 'components/ToggleThemeButton/ToggleThemeButton';
 
 const Layout = () => {
-  const [theme, setTheme] = useState(JSON.parse(localStorage.getItem('theme')) ?? false);
 
-  const handleThemeChange = () => {
-    localStorage.setItem('theme', JSON.stringify(!theme));
-    setTheme(!theme)
-  }
-  
   return (
     <>
       <Header>
         <NavigationLink to="/">Home</NavigationLink>
         <NavigationLink to="/movies">Movies</NavigationLink>
-        <ThemeButtonContainer>
-          <ThemeButton type="checkbox" onChange={handleThemeChange} checked={theme}/>
-        </ThemeButtonContainer>
+        <ToggleThemeButton />
       </Header>
       <main>
         <Container>

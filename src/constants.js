@@ -9,20 +9,20 @@ export const OPTIONS = {
 
 console.log(localStorage);
 
-// export const COLORS = {
-//   light_red: '#eb4034',
-//   dark_red: '#eb0034',
-//   black: '#212121',
-//   second_black: '#212121',
-//   white: '#fff', 
-//   second_white: '#fff',
-// }
-
 export const COLORS = {
   light_red: '#eb4034',
   dark_red: '#eb0034',
-  white: '#212121',
-  second_white: '#313131',
-  black: '#fff',
-  second_black: '#212121', 
+  black: '#212121',
+  second_black: '#212121',
+  white: '#fff', 
+  second_white: '#fff',
 }
+
+// export const COLORS = {
+//   light_red: '#eb4034',
+//   dark_red: '#eb0034',
+//   white: '#212121',
+//   second_white: '#313131',
+//   black: '#fff',
+//   second_black: '#212121', 
+// }
