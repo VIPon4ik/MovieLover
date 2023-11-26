@@ -3,6 +3,7 @@ import { getMovieDetails } from 'api/moviesApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loader from 'components/Loader/Loader';
+import ReviewItem from 'components/ReviewItem/ReviewItem';
 
 const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +28,8 @@ const Reviews = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(movieReviews);
+
   return (
     <>
       {isLoading && <Loader />}
@@ -35,12 +38,16 @@ const Reviews = () => {
         {movieReviews.length === 0 && isLoading === false ? (
           <p>We don't have any reviews for this movie</p>
         ) : (
-          movieReviews.map(({ author, content, id }) => (
-            <li key={id}>
-              <h3>{author}</h3>
-              <p>{content}</p>
-            </li>
-          ))
+          movieReviews.map(
+            ({ author, content, id, author_details: { rating } }) => (
+              <ReviewItem
+                key={id}
+                rating={rating}
+                author={author}
+                content={content}
+              />
+            )
+          )
         )}
       </ul>
     </>

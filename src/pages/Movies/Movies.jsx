@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getMovies } from 'api/moviesApi';
 import { toast } from 'react-toastify';
 import { useSearchParams, useLocation, useNavigate } from 'react-router-dom';
-import { MovieList } from './Home.styled';
+import { MovieList } from '../Home/Home.styled';
 import MovieCard from 'components/MovieCard/MovieCard';
 import Loader from 'components/Loader/Loader';
 import { Form, Input, SearchButton } from './Movies.styled';
