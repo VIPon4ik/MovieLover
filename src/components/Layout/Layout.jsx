@@ -23,8 +23,8 @@ const Layout = () => {
   return (
     <>
       <Header>
-        <NavigationLink to="/movies">Movies</NavigationLink>
         <NavigationLink to="/">Home</NavigationLink>
+        <NavigationLink to="/movies">Movies</NavigationLink>
         <ThemeButtonContainer>
           <ThemeButton type="checkbox" onChange={handleThemeChange} checked={theme}/>
         </ThemeButtonContainer>

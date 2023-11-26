@@ -11,7 +11,7 @@ export const MovieTitle = styled.h2`
 
 
 export const MovieListItem = styled.li`
-  background-color: ${COLORS.black};
+  background-color: ${COLORS.second_black};
   border-radius: 8px;
 
   &:hover ${MovieTitle},
@@ -24,7 +24,7 @@ export const NoPoster = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${COLORS.white};
+  color: #fff;
   width: 280px;
   height: 420px;
 `

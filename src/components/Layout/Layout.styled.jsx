@@ -5,7 +5,7 @@ import { COLORS } from 'constants';
 export const NavigationLink = styled(NavLink)`
   text-decoration: none;
   font-size: 20px;
-  color: black;
+  color: ${COLORS.black};
   transition: color 0.2s ease-in-out;
 
   &.active {
@@ -77,15 +77,16 @@ export const ThemeButton = styled.input`
   }
 
   &:checked {
-    background-color: ${COLORS.white};
+    background-color: ${COLORS.second_white};
   }
 `;
 
 export const Container = styled.div`
   max-width: 1240px;
   min-width: 320px;
+  min-height: 100vh;
   padding: 90px 20px 20px 20px;
   margin: 0 auto;
-  background-color: ${COLORS.white};
+  background-color: ${COLORS.second_white};
   color: ${COLORS.black};
 `;
