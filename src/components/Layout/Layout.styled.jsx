@@ -32,6 +32,10 @@ export const Header = styled.header`
   color: ${COLORS.black};
 `;
 
+export const Main = styled.main`
+  background-color: ${COLORS.second_white}
+`
+
 export const Container = styled.div`
   max-width: 1240px;
   min-width: 320px;

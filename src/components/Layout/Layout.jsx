@@ -6,6 +6,7 @@ import {
   NavigationLink,
   Header,
   Container,
+  Main
 } from './Layout.styled';
 import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
@@ -20,13 +21,13 @@ const Layout = () => {
         <NavigationLink to="/movies">Movies</NavigationLink>
         <ToggleThemeButton />
       </Header>
-      <main>
+      <Main>
         <Container>
           <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
         </Container>
-      </main>
+      </Main>
       <ToastContainer position="top-center" autoClose="1000" />
     </>
   );
