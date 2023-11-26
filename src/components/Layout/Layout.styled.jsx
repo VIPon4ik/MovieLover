@@ -49,7 +49,6 @@ export const ThemeButton = styled.input`
   margin: 0;
   vertical-align: top;
   background: ${COLORS.light_red};
-  border: 1px solid #bbc1e1;
   border-radius: 30px;
   outline: none;
   cursor: pointer;
@@ -64,8 +63,8 @@ export const ThemeButton = styled.input`
     left: 3px;
     top: 1.5px;
 
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     background-color: ${COLORS.white};
     border-radius: 50%;
 

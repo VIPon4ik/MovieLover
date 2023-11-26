@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,13 +13,20 @@ import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
 
 const Layout = () => {
+  const [theme, setTheme] = useState(JSON.parse(localStorage.getItem('theme')) ?? false);
+
+  const handleThemeChange = () => {
+    localStorage.setItem('theme', JSON.stringify(!theme));
+    setTheme(!theme)
+  }
+  
   return (
     <>
       <Header>
         <NavigationLink to="/movies">Movies</NavigationLink>
         <NavigationLink to="/">Home</NavigationLink>
         <ThemeButtonContainer>
-          <ThemeButton type="checkbox"/>
+          <ThemeButton type="checkbox" onChange={handleThemeChange} checked={theme}/>
         </ThemeButtonContainer>
       </Header>
       <main>
