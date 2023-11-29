@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "constants";
 
 export const Form = styled.form`
   display: flex;
@@ -31,11 +30,11 @@ export const SearchButton = styled.button`
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
   border: none;
-  background-color: ${COLORS.light_red};
+  background-color: ${({ theme }) => theme.light_red};
   cursor: pointer;
 
   &:hover,
   &:focus {
-    background-color: ${COLORS.dark_red};
+    background-color: ${({ theme }) => theme.dark_red};
   }
 `

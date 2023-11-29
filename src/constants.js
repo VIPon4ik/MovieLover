@@ -24,11 +24,3 @@ export const DARK_COLORS = {
   black: '#fff',
   second_black: '#212121', 
 }
-
-export const getColors = (toggle) => {
-  if (toggle) {
-    return DARK_COLORS;
-  }
-
-  return COLORS;
-}

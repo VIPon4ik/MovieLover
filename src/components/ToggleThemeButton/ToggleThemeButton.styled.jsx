@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import { getColors } from "constants";
-
-const COLORS = getColors(JSON.parse(localStorage.getItem('theme')));
 
 export const ThemeButtonContainer = styled.div`
   position: absolute;
@@ -21,7 +18,7 @@ export const ThemeButton = styled.input`
   height: 25px;
   margin: 0;
   vertical-align: top;
-  background: ${COLORS.light_red};
+  background: ${({ theme }) => theme.light_red};
   border-radius: 30px;
   outline: none;
   cursor: pointer;
@@ -38,7 +35,7 @@ export const ThemeButton = styled.input`
 
     width: 22px;
     height: 22px;
-    background-color: ${COLORS.white};
+    background-color: ${({ theme }) => theme.white};
     border-radius: 50%;
 
     transform: translateX(0);
@@ -46,10 +43,10 @@ export const ThemeButton = styled.input`
 
   &:checked::after {
     transform: translateX(calc(100% + 3px));
-    background-color: ${COLORS.light_red};  
+    background-color: ${({ theme }) => theme.light_red};  
   }
 
   &:checked {
-    background-color: ${COLORS.second_white};
+    background-color: ${({ theme }) => theme.second_white};
   }
 `;

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLORS } from "constants";
 import { Link } from "react-router-dom";
 
 export const ImageContainer = styled.div`
@@ -17,11 +16,11 @@ export const NoPoster = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${COLORS.white};
+  color: ${({ theme }) => theme.white};
   width: 300px;
   height: 450px;
 
-  background-color: ${COLORS.black};
+  background-color: ${({ theme }) => theme.black};
 `
 
 export const RatingText = styled.p`
@@ -38,7 +37,7 @@ export const MovieLinkList = styled.ul`
 
 export const MovieLink = styled(Link)`
   color: #fff;
-  background-color: ${COLORS.light_red};
+  background-color: ${({ theme }) => theme.light_red};
   max-width: 100px;
   height: 100%;
   padding: 10px;
@@ -54,6 +53,6 @@ export const MovieLink = styled(Link)`
 
   &:hover,
   &:focus {
-    background-color: ${COLORS.dark_red};
+    background-color: ${({ theme }) => theme.dark_red};
   }
 `

@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import { getColors } from "constants";
-
-const COLORS = getColors(JSON.parse(localStorage.getItem('theme')));
 
 export const Rating = styled.span`
   display: inline-flex;
   align-items: center;
   font-size: 14px;
-  color: ${COLORS.black};
+  color: ${({ theme }) => theme.black};
   margin-left: 10px;
   gap: 6px;
 `
