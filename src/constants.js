@@ -7,8 +7,6 @@ export const OPTIONS = {
   },
 };
 
-console.log(localStorage);
-
 export const COLORS = {
   light_red: '#eb4034',
   dark_red: '#eb0034',

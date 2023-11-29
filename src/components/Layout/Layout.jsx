@@ -12,14 +12,14 @@ import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
 import ToggleThemeButton from 'components/ToggleThemeButton/ToggleThemeButton';
 
-const Layout = () => {
+const Layout = ({ handleThemeChange, theme }) => {
 
   return (
     <>
       <Header>
         <NavigationLink to="/">Home</NavigationLink>
         <NavigationLink to="/movies">Movies</NavigationLink>
-        <ToggleThemeButton />
+        <ToggleThemeButton handleThemeChange={handleThemeChange} theme={theme}/>
       </Header>
       <Main>
         <Container>

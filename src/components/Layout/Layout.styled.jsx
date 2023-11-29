@@ -1,22 +1,19 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom'
-import { getColors } from 'constants';
-
-const COLORS = getColors(JSON.parse(localStorage.getItem('theme')));
 
 export const NavigationLink = styled(NavLink)`
   text-decoration: none;
   font-size: 20px;
-  color: ${COLORS.black};
+  color: ${({ theme }) => theme.black};
   transition: color 0.2s ease-in-out;
 
   &.active {
-    color: ${COLORS.light_red};
+    color: ${({ theme }) => theme.light_red};
   }
 
   &:hover,
   &:active {
-    color: ${COLORS.light_red};
+    color: ${({ theme }) => theme.light_red};
   }
 `;
 
@@ -25,15 +22,15 @@ export const Header = styled.header`
   display: flex;
   gap: 20px;
   min-width: 320px;
-  background-color: ${COLORS.white};
+  background-color: ${({ theme }) => theme.white};
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
   position: fixed;
   width: 100%;
-  color: ${COLORS.black};
+  color: ${({ theme }) => theme.black};
 `;
 
 export const Main = styled.main`
-  background-color: ${COLORS.second_white}
+  background-color: ${({ theme }) => theme.second_white}
 `
 
 export const Container = styled.div`
@@ -42,6 +39,6 @@ export const Container = styled.div`
   min-height: 100vh;
   padding: 90px 20px 20px 20px;
   margin: 0 auto;
-  background-color: ${COLORS.second_white};
-  color: ${COLORS.black};
+  background-color: ${({ theme }) => theme.second_white};
+  color: ${({ theme }) => theme.black};
 `;
