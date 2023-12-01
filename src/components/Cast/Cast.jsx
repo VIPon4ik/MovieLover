@@ -31,9 +31,17 @@ const Cast = () => {
   return (
     <>
       {isLoading && <Loader />}
+      {!isLoading && movieCast.length === 0 && (
+        <p>We don't have information about cast</p>
+      )}
       <CastList>
         {movieCast.map(({ character, name, profile_path, id }) => (
-          <CastCard key={id} character={character} name={name} profile_path={profile_path} />
+          <CastCard
+            key={id}
+            character={character}
+            name={name}
+            profile_path={profile_path}
+          />
         ))}
       </CastList>
     </>
