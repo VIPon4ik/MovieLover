@@ -3,14 +3,14 @@ import { NotFoundTitle } from './PageNotFound.styled';
 import { MovieLink } from 'pages/MovieDetails/MovieDetails.styled';
 import { FaLongArrowAltLeft } from 'react-icons/fa';
 
-const PageNotFound = () => {
+const PageNotFound = ({ children = 'Page do not exist'}) => {
   return (
     <>
       <MovieLink to='/'>
         <FaLongArrowAltLeft />
         Home
       </MovieLink>
-      <NotFoundTitle>Page do not exist</NotFoundTitle>
+      <NotFoundTitle>{children}</NotFoundTitle>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, Suspense } from 'react';
-import { useParams, Outlet, useLocation } from 'react-router-dom';
+import { useParams, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaStar } from 'react-icons/fa6';
 import { FaLongArrowAltLeft } from 'react-icons/fa';
@@ -19,6 +19,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const getBackLink = () => {
     if (location.state?.from.pathname === '/') {
@@ -40,6 +41,7 @@ const MovieDetails = () => {
         setMovie(movieDetails);
       } catch (error) {
         toast.error('Problem with API: ', error);
+        navigate('/notExist')
       } finally {
         setIsLoading(false);
       }
