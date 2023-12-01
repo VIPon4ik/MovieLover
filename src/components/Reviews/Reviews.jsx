@@ -31,20 +31,18 @@ const Reviews = () => {
   return (
     <>
       {isLoading && <Loader />}
-
+      {!isLoading && movieReviews.length === 0 && (
+        <p>We don't have any reviews for this movie</p>
+      )}
       <ul>
-        {movieReviews.length === 0 && isLoading === false ? (
-          <p>We don't have any reviews for this movie</p>
-        ) : (
-          movieReviews.map(
-            ({ author, content, id, author_details: { rating } }) => (
-              <ReviewItem
-                key={id}
-                rating={rating}
-                author={author}
-                content={content}
-              />
-            )
+        {movieReviews.map(
+          ({ author, content, id, author_details: { rating } }) => (
+            <ReviewItem
+              key={id}
+              rating={rating}
+              author={author}
+              content={content}
+            />
           )
         )}
       </ul>
