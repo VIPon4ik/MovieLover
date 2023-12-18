@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MovieLover/static/css/main.c3095ef2.css",
-    "main.js": "/MovieLover/static/js/main.2c1168bb.js",
+    "main.js": "/MovieLover/static/js/main.c6d0a909.js",
     "static/js/544.7d7b8479.chunk.js": "/MovieLover/static/js/544.7d7b8479.chunk.js",
     "static/js/691.67cdbf5c.chunk.js": "/MovieLover/static/js/691.67cdbf5c.chunk.js",
     "static/js/961.0ee9b5c3.chunk.js": "/MovieLover/static/js/961.0ee9b5c3.chunk.js",
@@ -11,7 +11,7 @@
     "static/js/203.b4480cb7.chunk.js": "/MovieLover/static/js/203.b4480cb7.chunk.js",
     "index.html": "/MovieLover/index.html",
     "main.c3095ef2.css.map": "/MovieLover/static/css/main.c3095ef2.css.map",
-    "main.2c1168bb.js.map": "/MovieLover/static/js/main.2c1168bb.js.map",
+    "main.c6d0a909.js.map": "/MovieLover/static/js/main.c6d0a909.js.map",
     "544.7d7b8479.chunk.js.map": "/MovieLover/static/js/544.7d7b8479.chunk.js.map",
     "691.67cdbf5c.chunk.js.map": "/MovieLover/static/js/691.67cdbf5c.chunk.js.map",
     "961.0ee9b5c3.chunk.js.map": "/MovieLover/static/js/961.0ee9b5c3.chunk.js.map",
@@ -22,6 +22,6 @@
   },
   "entrypoints": [
     "static/css/main.c3095ef2.css",
-    "static/js/main.2c1168bb.js"
+    "static/js/main.c6d0a909.js"
   ]
 }
